@@ -9,7 +9,7 @@ def load_data(messages_filepath, categories_filepath):
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     # merge datasets
-    df = pd.merge(left=messages,right= categories, how = 'outer', on='id')
+    df = pd.merge(messages, categories, on='id')
     
     return df 
 
@@ -30,10 +30,9 @@ def clean_data(df):
                    
     # drop categories column and orignial column 
     df.drop(['categories'], axis =1 , inplace = True)
-    messages = df[['message', 'genre', 'id']]
-    categories['id'] = df['id']
+
     # concat df and categories
-    df = pd.merge(messages,categories)           
+    df = pd.concat([df,categories],axis= 1)           
      
     # remove duplicate data 
     df.drop_duplicates(subset= 'id', inplace = True)
