@@ -22,9 +22,9 @@ def load_data(database_filepath):
     engine = create_engine('sqlite:///'+database_filepath)
     df= pd.read_sql_table('DisasterInfomation',engine)
     # make message as feature and all of the others columns as target
-    X = df['message'].values
-    Y = df.iloc[:,3:]
-    category_names = list(df.columns[3:])
+    X = df['message']
+    Y = df.iloc[:,4:]
+    category_names = list(df.columns[4:])
     return X, Y,   category_names 
 
 def tokenize(text):
@@ -86,7 +86,7 @@ def main():
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
-        
+
         print('Building model...')
         model = build_model()
         
