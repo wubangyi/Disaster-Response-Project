@@ -26,7 +26,7 @@ def clean_data(df):
     # Convert category values to just numbers 0 or 1.
     for column in categories.columns:
         categories[column] = categories[column].str[-1]
-        categories[column = pd.to_numeric(categories[column])
+        categories[column] = pd.to_numeric(categories[column])
                    
     # drop categories column and orignial column 
     df.drop(['categories'], axis =1 , inplace = True)
