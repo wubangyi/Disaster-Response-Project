@@ -25,7 +25,7 @@ def load_data(database_filepath):
     X = df['message'].values
     Y = df.iloc[:,3:]
     category_names = list(df.columns[3:])
-    return X, y,   category_names 
+    return X, Y,   category_names 
 
 def tokenize(text):
     # Normalization
