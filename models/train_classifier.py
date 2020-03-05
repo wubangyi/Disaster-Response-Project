@@ -68,7 +68,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     #predict 
     y_pred = model.predict(X_test)
     #get the metrics and evaluate model performance 
-    print(classification_report(y_pred, Y_test, target_names = Y_test.keys()))
+    print(classification_report(y_pred, Y_test, target_names = category_names))
 
 
 def save_model(model, model_filepath):
