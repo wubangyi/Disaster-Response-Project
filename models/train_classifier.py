@@ -31,7 +31,7 @@ def tokenize(text):
     # Normalization
     text = re.sub(r"[^a-zA-Z0-9]", ' ', text.lower())
     # tokenize
-    words = word_tokenize(test)
+    words = word_tokenize(text)
     # remove stopwords 
     text = [w for w in words if w in stopwords.words('english')]
     
@@ -42,9 +42,9 @@ def tokenize(text):
     
     return lemmed
 
-def build_model():
+def build_model(X_train,y_train):
     #create pipeline based on vect, tfidf, clf
-    pipeline = Pipeline = (
+    pipeline = Pipeline(
                             [
                             ('vect', CountVectorizer(tokenizer = tokenize)),
                             ('tfidf', TfidfTransformer()),
@@ -53,14 +53,14 @@ def build_model():
                             )
     
     parameters = {
-                  'clf__estimator__n_estimators': [50, 100],
-                  'clf__estimator__min_samples_split': [2, 3, 4],
-                  'clf__estimator__criterion': ['entropy', 'gini']
+                  'clf__estimator__min_samples_split': [2, 4],
+                  'clf__estimator__criterion': ['gini', 'entropy'],
+                  'clf__estimator__max_depth': [None, 25, 50, 100, 150, 200],
                   }
     # GridSearchCV to test perfomances of each parameter and choose the best 
-    cv = GridSearchCV(pipeline, param_grid = parameters)
+    cv = GridSearchCV(estimator=pipeline, param_grid=parameters)
     # fit the data to the model
-    cv.fit(X_train,y_train)
+    cv.fit(X_train, y_train)
     
     return cv
     
@@ -89,14 +89,20 @@ def main():
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         
         print('Building model...')
-        model = build_model()
+        model = build_model(X_train,Y_train)
         
         print('Training model...')
         model.fit(X_train, Y_train)
         
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
-
+        
+        
+        ###WILL NEED TO CXLEAN THIS UP
+        print('TYPE OF MODEL')
+        print(type(model))
+        
+        
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
 
