@@ -21,7 +21,7 @@ def clean_data(df):
     row = categories.iloc[0]
     categories_colnames = row.apply(lambda x: x[:-2])
          # rename the columns of `categories`
-    categories.columns = category_colnames
+    categories.columns = categories_colnames
     
     # Convert category values to just numbers 0 or 1.
     for column in categories.columns:
