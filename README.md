@@ -13,10 +13,10 @@ In this project, it contains three main folders:
 2. Model : contain the ML pipeline codes and one pkl file for model 
 3. app : the Flask file to run the web application
 
-##Licensing, Authors, Acknowledgements
+## Licensing, Authors, Acknowledgements
 Credits must be given to Udacity for the starter codes and FigureEight for provding the data used by this project.
 
-##Instructions:
+## Instructions
 Run the following commands in the project's root directory to set up your database and model.
 
 To run ETL pipeline that cleans data and stores in database python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
