@@ -23,7 +23,7 @@ def load_data(database_filepath):
     df= pd.read_sql_table('DisasterInfomation',engine)
     # make message as feature and all of the others columns as target
     X = df['message'].values
-    y = df.iloc[:,3:]
+    Y = df.iloc[:,3:]
     category_names = list(df.columns[3:])
     return X, y,   category_names 
 
