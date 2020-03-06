@@ -51,4 +51,4 @@ Run the following command in the app's directory to run your web app.
 Go to http://0.0.0.0:3001/
 
 ## Screenshots
-![Web app](https://github.com/bangyiwu/Disaster-Response-Project/blob/master/screenshot1.JPG)
+![Web app](https://github.com/bangyiwu/Disaster-Response-Project/blob/master/1.JPG)
