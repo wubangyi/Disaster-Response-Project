@@ -17,10 +17,8 @@ import nltk
 nltk.download(['punkt', 'wordnet', 'averaged_perceptron_tagger'])
 
 ## Project Motivation
-This project was done to complete the Udacity Data Scientitst Nanodegree. Using Figure Eight's data by applying ETL, ML Pipeline, NLP etc to classify the disaster messages.
+This project was done to complete the Udacity Data Scientitst Nanodegree. Using Figure Eight's data by applying ETL, ML Pipeline, NLP etc to classify the disaster messages.This project will include a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data
 
-## Project Information
-In this project, i used two main dataset (messages, and categories) from Figure Eight about Disaster Response. I applyed ETL process, Machine Learning Pipline, NLP to build a RandomForest Model to classify disaster messages. 
 
 ## App Description
 In this project, it contains three main folders:
