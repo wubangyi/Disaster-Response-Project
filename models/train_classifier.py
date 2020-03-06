@@ -15,6 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.metrics import accuracy_score, classification_report
+import pickle
 nltk.download(['punkt', 'wordnet', 'averaged_perceptron_tagger','stopwords'])
 
 def load_data(database_filepath):
@@ -54,10 +55,10 @@ def build_model():
     
     parameters = {
                   #'clf__estimator__n_estimators': [50, 100],
-                  #'clf__estimator__min_samples_split': [2, 3, 4],
-                  'clf__estimator__criterion': ['entropy', 'gini']
+                  #'clf__estimator__min_samples_split': [2, 4],
+                  'clf__estimator__criterion': ['entropy']
                   }
-    # GridSearchCV to test perfomances of each parameter and choose the best 
+    #GridSearchCV to test perfomances of each parameter and choose the best 
     cv = GridSearchCV(pipeline, param_grid=parameters)
    
     
@@ -68,7 +69,8 @@ def evaluate_model(model, X_test, Y_test, category_names):
     #predict 
     y_pred = model.predict(X_test)
     #get the metrics and evaluate model performance 
-    print(classification_report(y_pred, Y_test, target_names = category_names))
+
+    print(classification_report(y_pred, Y_test, target_names=category_names))
 
 
 def save_model(model, model_filepath):
