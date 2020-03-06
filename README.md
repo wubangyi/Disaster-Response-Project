@@ -1,8 +1,23 @@
-# Disaster-Response-Project
+# Disaster Response Pipeline Project
+
+
+## Table of Contents
+1. [Prerequisites](#Prerequisites)
+2. [Project Motivation](#Project Motivation)
+3. [Project Information](#Project Information)
+4. [App Description](#App Description)
+5. [Licensing, Authors, Acknowledgements](#Licensing, Authors, Acknowledgements)
+6. [Instructions](#Instructions)
+7. [Screenshots](#screenshots)
+
+<a name="descripton"></a>
 ## Prerequisites
 The following package of nltk need to be download. 
 import nltk
 nltk.download(['punkt', 'wordnet', 'averaged_perceptron_tagger'])
+
+## Project Motivation
+This project was done to complete the Udacity Data Scientitst Nanodegree. Using Figure Eight's data by applying ETL, ML Pipeline, NLP etc to classify the disaster messages.
 
 ## Project Information
 In this project, i used two main dataset (messages, and categories) from Figure Eight about Disaster Response. I applyed ETL process, Machine Learning Pipline, NLP to build a RandomForest Model to classify disaster messages. 
