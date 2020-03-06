@@ -3,10 +3,10 @@
 
 ## Table of Contents
 1. [Prerequisites](#Prerequisites)
-2. [Project Motivation](#Project Motivation)
-3. [Project Information](#Project Information)
-4. [App Description](#App Description)
-5. [Licensing, Authors, Acknowledgements](#Licensing, Authors, Acknowledgements)
+2. [Project_Motivation](#Project_Motivation)
+3. [Project_Information](#Project_Information)
+4. [App_Description](#App_Description)
+5. [Licensing_Authors_Acknowledgements](#Licensing_Authors_Acknowledgements)
 6. [Instructions](#Instructions)
 7. [Screenshots](#screenshots)
 
