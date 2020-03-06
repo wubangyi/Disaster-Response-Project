@@ -36,7 +36,8 @@ def clean_data(df):
      
     # remove duplicate data 
     df.drop_duplicates(subset= 'id', inplace = True)
-    
+    #
+    df.related.replace(2,1,inplace = True)
                    
     return df
                    
