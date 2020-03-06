@@ -4,11 +4,10 @@
 ## Table of Contents
 1. [Prerequisites](#Prerequisites)
 2. [Project_Motivation](#Project_Motivation)
-3. [Project_Information](#Project_Information)
-4. [App_Description](#App_Description)
-5. [Licensing_Authors_Acknowledgements](#Licensing_Authors_Acknowledgements)
-6. [Instructions](#Instructions)
-7. [Screenshots](#screenshots)
+3. [App_Description](#App_Description)
+4. [Licensing_Authors_Acknowledgements](#Licensing_Authors_Acknowledgements)
+5. [Instructions](#Instructions)
+6. [Screenshots](#screenshots)
 
 <a name="descripton"></a>
 ## Prerequisites
