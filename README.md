@@ -3,6 +3,7 @@
 
 ## Table of Contents
 1. [Prerequisites](#Prerequisites)
+2. [Project_Overview](#Project_Motivation)
 2. [Project_Motivation](#Project_Motivation)
 3. [App_Description](#App_Description)
 4. [Licensing_Authors_Acknowledgements](#Licensing_Authors_Acknowledgements)
@@ -15,8 +16,15 @@ The following package of nltk need to be download.
 import nltk
 nltk.download(['punkt', 'wordnet', 'averaged_perceptron_tagger'])
 
+## Project Overview
+In this project, I'll apply data engineering to analyze disaster data from <a href="https://www.figure-eight.com/" target="_blank">Figure Eight</a> to build a model for an API that classifies disaster messages.
+
+_data_ directory contains a data set which are real messages that were sent during disaster events. I will be creating a machine learning pipeline to categorize these events so that appropriate disaster relief agency can be reached out for help.
+
+This project will include a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data.
+
 ## Project Motivation
-This project was done to complete the Udacity Data Scientitst Nanodegree. Using Figure Eight's data by applying ETL, ML Pipeline, NLP etc to classify the disaster messages.This project will include a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data
+This project was done to complete the Udacity Data Scientitst Nanodegree. Using Figure Eight's data by applying ETL, ML Pipeline, NLP etc to classify the disaster messages.
 
 
 ## App Description
