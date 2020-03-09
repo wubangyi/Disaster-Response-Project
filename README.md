@@ -52,3 +52,5 @@ Go to http://0.0.0.0:3001/
 
 ## Screenshots
 ![](https://github.com/wubangyi/Disaster-Response-Project/blob/master/1.PNG)
+![](https://github.com/wubangyi/Disaster-Response-Project/blob/master/2.PNG)
+![](https://github.com/wubangyi/Disaster-Response-Project/blob/master/3.PNG)
