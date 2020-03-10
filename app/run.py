@@ -29,6 +29,7 @@ def tokenize(text):
 engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql_table('DisasterInfomation', engine)
 
+
 # load model
 model = joblib.load("../models/classifier.pkl")
 
@@ -45,6 +46,41 @@ def index():
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
+        # extract data needed for visuals
+    genre_counts = df.groupby('genre').count()['message'] # message count based\
+                                                          # on genre
+    genre_names = list(genre_counts.index)                # genre names
+    cat_p = df[df.columns[4:]].sum()/len(df)              # proportion based on\
+                                                          # categories
+    cat_p = cat_p.sort_values(ascending = False)          # largest bar will be\
+                                                          # on left
+    cats = list(cat_p.index)                              # category names
+
+    words_with_repetition=[]                              # will contain all\
+                                                          # words words with\
+                                                          # repetition
+    for text in df['message'].values:
+        tokenized_ = tokenize(text)
+        words_with_repetition.extend(tokenized_)
+
+    word_count_dict = Counter(words_with_repetition)      # dictionary\
+                                                          # containing word\
+                                                          # count for all words
+    
+    sorted_word_count_dict = dict(sorted(word_count_dict.items(),
+                                         key=operator.itemgetter(1),
+                                         reverse=True))   # sort dictionary by\
+                                                          # values
+    top, top_10 =0, {}
+
+    for k,v in sorted_word_count_dict.items():
+        top_10[k]=v
+        top+=1
+        if top==10:
+            break
+    words=list(top_10.keys())
+    pprint(words)
+    count_props=100*np.array(list(top_10.values()))/df.shape[0]
     graphs = [
         {
             'data': [
@@ -61,6 +97,47 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=cats,
+                    y=cat_p
+                )
+            ],
+
+            'layout': {
+                'title': 'Proportion of Messages <br> by Category',
+                'yaxis': {
+                    'title': "Proportion",
+                    'automargin':True
+                },
+                'xaxis': {
+                    'title': "Category",
+                    'tickangle': -40,
+                    'automargin':True
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=words,
+                    y=count_props
+                )
+            ],
+
+            'layout': {
+                'title': 'Frequency of top 10 words <br> as percentage',
+                'yaxis': {
+                    'title': 'Occurrence<br>(Out of 100)',
+                    'automargin': True
+                },
+                'xaxis': {
+                    'title': 'Top 10 words',
+                    'automargin': True
                 }
             }
         }
